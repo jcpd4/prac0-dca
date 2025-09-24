@@ -21,6 +21,14 @@ void MainGameState::init()
 
     // Inicialización de la velocidad vertical
     player.vy = 0.0f;
+
+    // ejercicio 5
+    birdSprite = LoadTexture("assets/yellowbird-midflap.png");
+    pipeSprite = LoadTexture("assets/pipe-green.png");
+
+    // Define el ancho y alto del pájaro a partir de la textura
+    player.width = (float)birdSprite.width;
+    player.height = (float)birdSprite.height;
 }
 
 void MainGameState::handleInput()
@@ -88,10 +96,10 @@ void MainGameState::update(float deltaTime)
         pipes.pop_front();
     }
 
+
     // EJERCICIO 3
     // 1. Define el bounding box del pájaro
-    Rectangle playerRec = {player.x - 17, player.y - 17, 34, 34};
-
+    Rectangle playerRec = { player.x, player.y, (float)player.width, (float)player.height };
     // Opcional: Dibuja el bounding box para depurar (luego lo puedes borrar)
     // DrawRectangleRec(playerRec, Fade(RED, 0.5f));
 
@@ -119,15 +127,14 @@ void MainGameState::render()
     ClearBackground(RAYWHITE); 
 
     // Dibuja el pájaro como un círculo rojo
-    DrawCircle((int)player.x, (int)player.y, 17, RED);
+    DrawTextureEx(birdSprite, {player.x, player.y}, 0.0f, 1.0f, WHITE);
 
     // --- Lógica para dibujar los tubos ---
     for (const auto& p : pipes) {
-        // Dibuja la tubería superior
-        DrawRectangleRec(p.top, GREEN);
-        
+        // Dibuja la tubería superior, rotada
+        DrawTextureEx(pipeSprite, { p.top.x + p.top.width, p.top.y + p.top.height }, 180.0f, 1.0f, WHITE);
         // Dibuja la tubería inferior
-        DrawRectangleRec(p.bot, GREEN);
+        DrawTextureEx(pipeSprite, { p.bot.x, p.bot.y }, 0.0f, 1.0f, WHITE);
     }
 
     //MARCADOR

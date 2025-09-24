@@ -11,6 +11,8 @@ struct Bird {
     float x;
     float y;
     float vy;
+    float width;  
+    float height; 
 };
 
 struct PipePair {
@@ -47,4 +49,8 @@ class MainGameState : public GameState
         float spawn_timer = 0.0f;       // Temporizador para la aparición de tubos
         int score = 0; // Aquí se declara la variable de puntuación
         
+        // Nuevas variables para las texturas
+        Texture2D birdSprite;
+        Texture2D pipeSprite;
+
 };
