@@ -3,7 +3,6 @@
 #include <GameState.hpp>
 #include <memory>
 
-// Incluye raylib para usar sus funciones de dibujo y manejo de entrada
 extern "C" {
     #include <raylib.h>
 }
@@ -23,6 +22,6 @@ public:
     void resume(){};
 
 private:
-    int finalScore; // Variable para almacenar la puntuación
+    int finalScore; 
 
 };

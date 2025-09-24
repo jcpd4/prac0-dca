@@ -18,7 +18,7 @@ struct Bird {
 struct PipePair {
     Rectangle top;
     Rectangle bot;
-    bool scored = false; // Para saber si el jugador ya ha ganado un punto con este par de tubos
+    bool scored = false; 
 };
 
 class MainGameState : public GameState
@@ -45,11 +45,10 @@ class MainGameState : public GameState
         const float PIPE_W = 32.0f;
         const float PIPE_H = 320.0f;
         const float PIPE_SPEED = 150.0f;
-        const float SPAWN_EVERY = 2.0f; // Frecuencia de aparición de tubos
-        float spawn_timer = 0.0f;       // Temporizador para la aparición de tubos
-        int score = 0; // Aquí se declara la variable de puntuación
+        const float SPAWN_EVERY = 2.0f; 
+        float spawn_timer = 0.0f;       
+        int score = 0; 
         
-        // Nuevas variables para las texturas
         Texture2D birdSprite;
         Texture2D pipeSprite;
 

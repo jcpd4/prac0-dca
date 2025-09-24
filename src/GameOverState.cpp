@@ -1,8 +1,8 @@
 #include <GameOverState.hpp>
 #include <StateMachine.hpp>
-#include <MainGameState.hpp> // Incluye MainGameState para poder volver a él
+#include <MainGameState.hpp> 
 #include <memory>
-#include <string> // Necesario para std::to_string
+#include <string> 
 
 
 extern "C" {
@@ -12,7 +12,6 @@ extern "C" {
 GameOverState::GameOverState(int score) : finalScore(score) {} // Inicializa la variable
 
 void GameOverState::init() {
-    // El método está vacío, no se necesita inicialización
 }
 
 void GameOverState::handleInput() {
@@ -23,14 +22,11 @@ void GameOverState::handleInput() {
 }
 
 void GameOverState::update(float deltaTime) {
-    // El método está vacío, no se necesita actualizar nada
 }
 
 void GameOverState::render() {
-    // Inicia el proceso de dibujo
     BeginDrawing();
 
-    // Limpia el fondo con un color
     ClearBackground(RAYWHITE); 
 
     // Dibuja el texto "Game Over" en el centro de la pantalla
@@ -47,6 +43,5 @@ void GameOverState::render() {
     DrawText(scoreMessage.c_str(), (GetScreenWidth() - scoreWidth) / 2, GetScreenHeight() / 2 + 10, 20, BLACK);
 
 
-    // Finaliza el proceso de dibujo
     EndDrawing();
 }

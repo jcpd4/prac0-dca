@@ -19,10 +19,9 @@ int main()
     state_machine.add_state(std::make_unique<MainGameState>(), false);
     state_machine.handle_state_changes(delta_time);
 
-    // Main game loop provided by raylib
-    while (!WindowShouldClose()) // This loop runs until the user closes the window
+    while (!WindowShouldClose()) 
     {
-        delta_time = GetFrameTime(); // Get the time passed since the last frame
+        delta_time = GetFrameTime(); 
         
         state_machine.handle_state_changes(delta_time);
         if (state_machine.getCurrentState() != nullptr) {
@@ -32,7 +31,6 @@ int main()
         }
     }
 
-    // De-initialize the game window
     CloseWindow();
 
     return 0;
